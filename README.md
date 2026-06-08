@@ -11,15 +11,15 @@ AI Campus Assistant is an AI-powered academic support platform designed to assis
 ## Team Information
 
 **Team Name:** CSE4204-8C-T05
-
 **Section:** 8C
-
-| Name | Student ID | Role |
-
-1. Sheikh Tashreeful Islam | 11220321042 | Team Leader & Backend Developer 
-2. Mirajur Rahman | 11220320917 | Frontend Developer 
-3. Gazi Jayed Rasul | 11220320906 | Database Manager 
-4. Md. Shakil Ahammed | 11220320920 | AI Integration Lead 
+**Team Leader:** Sheikh Tashreeful Islam
+**Team Member's info:**
+| Sl. | Name | Student ID | Core Role & Responsibilities |
+| :--- | :--- | :--- | :--- |
+| 1 | **Sheikh Tashreeful Islam** | `11220321042` | Team Leader & Backend Developer |
+| 2 | **Mirajur Rahman** | `11220320917` | Frontend Developer |
+| 3 | **Gazi Jayed Rasul** | `11220320906` | Database Manager |
+| 4 | **Md. Shakil Ahammed** | `11220320920` | AI Integration Lead |
 ---
 
 ## Features
@@ -54,7 +54,6 @@ AI Campus Assistant is an AI-powered academic support platform designed to assis
 ### AI Features
 
 #### AI Chat Assistant
-
 Students can ask academic and campus-related questions and receive intelligent responses.
 
 **Examples:**
@@ -93,14 +92,6 @@ Automatically generates:
 
 Summarizes lecture notes, documents, and academic content into concise key points.
 
-### Notification System
-
-- Assignment Notifications
-- CT Notifications
-- Exam Notifications
-- Routine Update Notifications
-- Academic Alerts
-
 ---
 
 ## Technology Stack
@@ -121,11 +112,7 @@ Summarizes lecture notes, documents, and academic content into concise key point
 
 ### Artificial Intelligence
 
-- Google Gemini API
-
-### Authentication
-
-- JWT (JSON Web Token)
+- Google Gemini API or any suitable API
 
 ### Version Control
 
