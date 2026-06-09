@@ -10,10 +10,10 @@ AI Campus Assistant is an AI-powered academic support platform designed to assis
 
 ## Team Information
 
-**Team Name:** CSE4204-8C-T05
-**Section:** 8C
-**Team Leader:** Sheikh Tashreeful Islam
-**Team Member's info:**
+- **Team Name:** CSE4204-8C-T05
+- **Section:** 8C
+- **Team Leader:** Sheikh Tashreeful Islam
+- **Team Member's info:**
 | Sl. | Name | Student ID | Core Role & Responsibilities |
 | :--- | :--- | :--- | :--- |
 | 1 | **Sheikh Tashreeful Islam** | `11220321042` | Team Leader & Backend Developer |
