@@ -56,3 +56,25 @@
 * docs/CSE4204-8C-T05_ERDiagram.pdf
 * docs/CSE4204-8C-T05_ArchitectureDiagram.pdf
 ---
+
+## Week 4
+
+**Date:** 15/06/2026
+
+### Activities Completed
+
+* System Architecture Diagram completed
+* Updated ER Diagram completed
+* Use Case Diagram completed
+* Activity Diagram completed
+* API Design Document created
+* AI Integration Workflow completed
+
+### Files Added/Updated
+
+* docs/CSE4204-8C-T05_AIIntegrationWorkflow.pdf by
+* docs/CSE4204-8C-T05_APIDesign.pdf
+* docs/CSE4204-8C-T05_ActivityDiagram.pdf
+* docs/CSE4204-8C-T05_ERDiagram.pdf
+* docs/CSE4204-8C-T05_SystemArchitectureDiagram.pdf
+---
