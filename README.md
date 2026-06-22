@@ -51,6 +51,7 @@ AI Campus Assistant is an AI-powered academic support platform designed to assis
 - View Assignments
 - View Academic Notices
 - Personalized Dashboard
+- Can access AI Features 
 
 ### AI Features
 
@@ -69,7 +70,7 @@ Students can retrieve academic information directly from the system database.
 **Examples:**
 - What is the exam routine for Section 7C?
 - Show upcoming assignments for Section 3B.
-- What CTs are scheduled this week?
+- Upcoming CTs of Section 8C?
 
 #### AI Study Planner
 
@@ -99,13 +100,17 @@ Summarizes lecture notes, documents, and academic content into concise key point
 
 ### Frontend
 
-- React.js
+- HTML
 - Tailwind CSS
+- Java Script
+- Laravel Blade Templates
 
 ### Backend
 
-- Node.js
-- Express.js
+- PHP Programming Language
+- Laravel 12 (PHP-Framework)
+- RESTful API Development
+- Laravel Authentication & Authorization
 
 ### Database
 
@@ -113,16 +118,16 @@ Summarizes lecture notes, documents, and academic content into concise key point
 
 ### Artificial Intelligence
 
-- Google Gemini API or any suitable API
+- Google Gemini API
+- OpenAI
+- Groq API (optional backup/support)
+- Hugging Face
+- Others (any suitable API)
 
 ### Version Control
 
 - Git
 - GitHub
-
-### API Testing
-
-- Postman
 
 ### Deployment
 
