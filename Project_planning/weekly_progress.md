@@ -78,3 +78,22 @@
 * docs/CSE4204-8C-T05_ERDiagram.pdf
 * docs/CSE4204-8C-T05_SystemArchitectureDiagram.pdf
 ---
+## Week 5
+
+**Date:** 22/06/2026
+
+### Activities Completed
+
+* UI/UX Design completed
+* User Flow Design completed
+* Updated Development Roadmap for upcoming weeks (week-6 to week-13)
+* Team Task Distribution Info
+* Final Tech-Stack Setup Details
+
+### Files Added/Updated
+
+* README.md - Updated
+* docs/CSE4204-8C-T05_APIDesign.pdf
+* frontend/CSE4204-8C-T05_UIUXDesign.pdf
+* frontend/CSE4204-8C-T05_UserFlowDesign.pdf
+---
