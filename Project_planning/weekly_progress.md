@@ -97,3 +97,49 @@
 * frontend/CSE4204-8C-T05_UIUXDesign.pdf
 * frontend/CSE4204-8C-T05_UserFlowDesign.pdf
 ---
+## Week 6
+
+**Date:** 29/06/2026
+
+### Activities Completed
+
+* Backend environment setup (PHP, Composer, Laravel framework)
+* Database implementation (XAMPP-MySQL) and ensure proper database connectivity
+* Authentication system integrated
+* Core API integrated & also Tested by Postman
+* Error handing
+
+### Files Added/Updated
+
+* backend/app/Http/Controllers/AuthController.php
+* backend/app/Http/Controllers/Api/
+  * AiRequestController.php
+  * AssignmentController.php
+  * CourseController.php
+  * NoticeController.php
+  * AuthController.php
+* backend/app/Models - all 10 models for controlling database-tables
+  * AiRequest.php
+  * Assignment.php
+  * Course.php
+  * CourseMaterials.php
+  * CtNotice.php
+  * Enrollments.php
+  * ExamRoutine.php
+  * Notice.php
+  * Routine.php
+  * User.php
+* backend/database/migrations/ - all necessary migration files
+  * 0001_01_01_000000_create_users_table.php
+  * 2026_06_28_123028_create_personal_access_tokens_table.php
+  * 2026_06_29_044439_create_courses_table.php
+  * 2026_06_29_044459_create_enrollments_table.php
+  * 2026_06_29_044508_create_assignments_table.php
+  * 2026_06_29_044523_create_ct_notices_table.php
+  * 2026_06_29_044533_create_course_materials_table.php
+  * 2026_06_29_044546_create_routines_table.php
+  * 2026_06_29_044603_create_exam_routines_table.php
+  * 2026_06_29_044614_create_notices_table.php
+  * 2026_06_29_044623_create_ai_requests_table.php
+* backend/routes/api.php 
+---
