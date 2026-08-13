@@ -13,7 +13,7 @@ use App\Http\Controllers\Api\CourseMaterialController;
 use App\Http\Controllers\Api\RoutineController;
 use App\Http\Controllers\Api\ExamRoutineController;
 use App\Http\Controllers\Api\DashboardController;
-
+use App\Http\Controllers\Admin\AdminDashboardController;
 
 
 // Authentication Routes
@@ -40,6 +40,9 @@ Route::middleware('auth:sanctum')->group(function () {
 
         // Dashboard
         Route::get('/admin-dashboard', [DashboardController::class, 'adminDashboard']);
+        Route::get('/admin/dashboard',[DashboardController::class,'index']);
+        
+        
 
         // User Management
         Route::get('/users', [UserController::class, 'index']);
@@ -76,8 +79,7 @@ Route::middleware('auth:sanctum')->group(function () {
         // Assignment Management
         Route::apiResource('assignments', AssignmentController::class);
 
-        // AI Requests
-        Route::apiResource('ai-requests', AiRequestController::class);
+        //AI REQUEST MANAGEMENT IMPLEMENT LATER
 
         // CT Notice Management
         Route::get('/ct-notices', [CTNoticeController::class, 'index']);
@@ -103,9 +105,14 @@ Route::middleware('auth:sanctum')->group(function () {
         // Dashboard
         Route::get('/student-dashboard', [DashboardController::class, 'studentDashboard']);
         
-        // AI Requests
-        Route::apiResource('ai-requests', AiRequestController::class);
+        // AI Services
+        Route::post('/ai/chat', [AiRequestController::class, 'chat']);
+        Route::post('/ai/study-plan', [AiRequestController::class, 'studyPlan']);
+        Route::post('/ai/assignment-helper', [AiRequestController::class, 'assignmentHelper']);
+        Route::post('/ai/quiz', [AiRequestController::class, 'quiz']);
+        Route::post('/ai/summarize', [AiRequestController::class, 'summarize']);
 
     });
 
 });
+
