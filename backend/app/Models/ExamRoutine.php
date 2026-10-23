@@ -17,4 +17,13 @@ class ExamRoutine extends Model
         'end_time',
         'room',
     ];
+
+    protected $casts = [
+        'exam_date' => 'date',
+    ];
+
+    public function course()
+    {
+        return $this->belongsTo(Course::class);
+    }
 }
