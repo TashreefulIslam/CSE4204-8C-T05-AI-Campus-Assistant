@@ -14,17 +14,25 @@ class AuthController extends Controller
         // Validate incoming data
         $validated = $request->validate([
             'name' => 'required|string|max:255',
+            'university_id' => 'required|string|max:50|unique:users,university_id',
             'email' => 'required|email|unique:users,email',
-            'password' => 'required|min:8',
-            //'role' => 'required|in:student,teacher,admin',
+            'department' => 'required|string|max:100',
+            'role' => 'required|in:student,teacher',
+            'password' => 'required|string|min:8|confirmed',
+            
+            
         ]);
 
         // Create new user
         $user = User::create([
             'name' => $validated['name'],
+            'university_id' => $validated['university_id'],
             'email' => $validated['email'],
+            'department' => $validated['department'],
+            'role' => $validated['role'],
             'password' => $validated['password'],
-            'role' => 'student',
+            //'password' => Hash::make($validated['password']),
+            //'role' => 'student',
         ]);
 
         // Return JSON response
@@ -72,6 +80,23 @@ class AuthController extends Controller
     return response()->json([
         'user' => $request->user()
     ], 200);
+    }
+
+    public function updateProfile(Request $request)
+    {
+        $user = $request->user();
+
+        $validated = $request->validate([
+            'email' => ['required', 'email', 'unique:users,email,' . $user->id],
+            'phone' => 'nullable|string|max:255',
+        ]);
+
+        $user->update($validated);
+
+        return response()->json([
+            'message' => 'Profile updated successfully.',
+            'user' => $user->fresh(),
+        ], 200);
     }
     
     public function logout(Request $request)
