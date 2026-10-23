@@ -17,4 +17,9 @@ class Routine extends Model
         'end_time',
         'room',
     ];
+
+    public function course()
+    {
+        return $this->belongsTo(Course::class);
+    }
 }
