@@ -9,6 +9,7 @@ class CourseMaterial extends Model
     use HasFactory;
 
     public $timestamps = false;
+    protected $table = 'course_materials';
 
     protected $fillable = [
         'course_id',
@@ -17,4 +18,18 @@ class CourseMaterial extends Model
         'file_path',
         'upload_date',
     ];
+
+    protected $casts = [
+        'upload_date' => 'datetime',
+    ];
+
+    public function course()
+    {
+        return $this->belongsTo(Course::class);
+    }
+
+    public function teacher()
+    {
+        return $this->belongsTo(User::class, 'teacher_id');
+    }
 }
