@@ -47,6 +47,34 @@ public function adminDashboard()
     ], 200);
 }
 
+public function index()
+{
+    $stats = [
+        'total_users' => User::count(),
+        'students' => User::where('role', 'student')->count(),
+        'teachers' => User::where('role', 'teacher')->count(),
+        'departments' => User::distinct('department')->count('department'),
+    ];
+
+    return response()->json([
+        'stats' => $stats,
+
+        'user_growth' => [],
+
+        'feature_usage' => [],
+
+        'recent_users' => [],
+
+        'recent_courses' => [],
+
+        'recent_activity' => [],
+    ]);
+}
+
+// END ADMIN DASHBOARD
+
+
+//TEACHER DASHBOARD
 public function teacherDashboard()
 {
     $teacherId = auth()->id();
@@ -94,7 +122,28 @@ public function teacherDashboard()
         'data' => $dashboard
     ], 200);
 }
+//END TEACHER DASHBOARD
 
+public function teacherStudents()
+{
+    $teacherId = auth()->id();
+
+    $enrollments = Enrollment::with([
+        'student:id,name,email,university_id,role',
+        'course:id,course_code,course_name,teacher_id',
+    ])
+        ->whereHas('course', fn ($query) => $query->where('teacher_id', $teacherId))
+        ->whereHas('student', fn ($query) => $query->where('role', 'student'))
+        ->get();
+
+    return response()->json([
+        'message' => 'Teacher students retrieved successfully.',
+        'data' => $enrollments,
+    ]);
+}
+
+
+// STUDENT DASHBOARD
 public function studentDashboard()
 {
     $studentId = auth()->id();
@@ -146,5 +195,8 @@ public function studentDashboard()
         'data' => $dashboard
     ], 200);
 }
+
+//END STUDENT DASHBOARD
+
 
 }
