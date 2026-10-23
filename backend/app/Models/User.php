@@ -29,11 +29,12 @@ class User extends Authenticatable
     protected $fillable = [
     'name',
     'email',
-    'phone',
     'password',
     'role',
     'university_id',
     'department',
+    'phone',
+    'semester'
     ];
 
     /**
@@ -59,7 +60,7 @@ class User extends Authenticatable
         ];
     }
 
-    public function courses()
+public function courses()
 {
     return $this->hasMany(Course::class, 'teacher_id');
 }
