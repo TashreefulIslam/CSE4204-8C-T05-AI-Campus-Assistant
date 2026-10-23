@@ -9,6 +9,7 @@ class CtNotice extends Model
     use HasFactory;
 
     public $timestamps = false;
+    protected $table = 'ct_notices';
 
     protected $fillable = [
         'course_id',
@@ -17,7 +18,26 @@ class CtNotice extends Model
         'exam_date',
         'start_time',
         'end_time',
+        'created_at',
     ];
 
-    const UPDATED_AT = null;
+    protected $casts = [
+        'exam_date' => 'date',
+        'start_time' => 'datetime:H:i:s',
+        'end_time' => 'datetime:H:i:s',
+        'created_at' => 'datetime',
+    ];
+
+    //const UPDATED_AT = null;
+
+
+    public function course()
+    {
+        return $this->belongsTo(Course::class);
+    }
+
+    public function teacher()
+    {
+        return $this->belongsTo(User::class, 'teacher_id');
+    }
 }
