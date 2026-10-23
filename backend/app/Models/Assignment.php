@@ -28,4 +28,9 @@ public function teacher()
     return $this->belongsTo(User::class, 'teacher_id');
 }
 
+public function completions()
+{
+return $this->hasMany(AssignmentCompletion::class);
+}
+
 }
