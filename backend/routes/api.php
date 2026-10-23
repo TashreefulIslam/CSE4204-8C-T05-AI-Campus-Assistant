@@ -13,6 +13,8 @@ use App\Http\Controllers\Api\CourseMaterialController;
 use App\Http\Controllers\Api\RoutineController;
 use App\Http\Controllers\Api\ExamRoutineController;
 use App\Http\Controllers\Api\DashboardController;
+use App\Http\Controllers\Api\EnrollmentController;
+use App\Http\Controllers\Api\StudentController;
 use App\Http\Controllers\Admin\AdminDashboardController;
 
 
@@ -30,8 +32,10 @@ Route::middleware('auth:sanctum')->group(function () {
     // Common Routes (All Logged-in Users)
     
     Route::get('/profile', [AuthController::class, 'profile']);
+    Route::put('/profile', [AuthController::class, 'updateProfile']);
     Route::post('/logout', [AuthController::class, 'logout']);
     Route::put('/update-password', [AuthController::class, 'updatePassword']);
+    Route::middleware('role:student,teacher')->post('/ai/quiz', [AiRequestController::class, 'quiz']);
 
     
     // Admin Routes
@@ -46,6 +50,7 @@ Route::middleware('auth:sanctum')->group(function () {
 
         // User Management
         Route::get('/users', [UserController::class, 'index']);
+        Route::post('/users', [UserController::class, 'store']);
         Route::get('/users/{user}', [UserController::class, 'show']);
         Route::put('/users/{user}', [UserController::class, 'update']);
         Route::delete('/users/{user}', [UserController::class, 'destroy']);
@@ -67,6 +72,10 @@ Route::middleware('auth:sanctum')->group(function () {
         Route::get('/exam-routines', [ExamRoutineController::class, 'index']);
         Route::put('/exam-routines/{exam_routine}', [ExamRoutineController::class, 'update']);
         Route::delete('/exam-routines/{exam_routine}', [ExamRoutineController::class, 'destroy']);
+
+        // Enrollment Management
+        Route::get('/enrollments', [EnrollmentController::class, 'index']);
+        Route::post('/enrollments', [EnrollmentController::class, 'store']);
     });
 
     // Teacher Routes
@@ -95,6 +104,9 @@ Route::middleware('auth:sanctum')->group(function () {
         Route::put('/course-materials/{course_material}', [CourseMaterialController::class, 'update']);
         Route::delete('/course-materials/{course_material}', [CourseMaterialController::class, 'destroy']);
 
+        // Enrolled Students
+        Route::get('/teacher-students', [DashboardController::class, 'teacherStudents']);
+
 
     });
 
@@ -103,16 +115,23 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::middleware('role:student')->group(function () {
 
         // Dashboard
-        Route::get('/student-dashboard', [DashboardController::class, 'studentDashboard']);
+        Route::get('/student-dashboard', [StudentController::class, 'dashboard']);
+        Route::get('/student/resources/dashboard', [StudentController::class, 'dashboard']);
+        Route::get('/student/resources/routines', [StudentController::class, 'routines']);
+        Route::get('/student/resources/exams', [StudentController::class, 'exams']);
+        Route::get('/student/resources/notices', [StudentController::class, 'notices']);
+        Route::get('/student/resources/assignments', [StudentController::class, 'assignments']);
+        Route::post('/student/resources/assignments/{assignment}/complete', [StudentController::class, 'completeAssignment']);
+        Route::get('/student/resources/courses', [StudentController::class, 'courses']);
+        Route::get('/student/resources/materials', [StudentController::class, 'materials']);
+        Route::get('/student/resources/materials/{course_material}/download', [StudentController::class, 'downloadMaterial']);
         
         // AI Services
         Route::post('/ai/chat', [AiRequestController::class, 'chat']);
         Route::post('/ai/study-plan', [AiRequestController::class, 'studyPlan']);
         Route::post('/ai/assignment-helper', [AiRequestController::class, 'assignmentHelper']);
-        Route::post('/ai/quiz', [AiRequestController::class, 'quiz']);
         Route::post('/ai/summarize', [AiRequestController::class, 'summarize']);
 
     });
 
 });
-
