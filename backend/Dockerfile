@@ -27,6 +27,15 @@ WORKDIR /var/www/html
 # Copy Laravel backend source code
 COPY . .
 
+RUN mkdir -p \
+    bootstrap/cache \
+    storage/framework/cache/data \
+    storage/framework/sessions \
+    storage/framework/views \
+    storage/logs \
+    && chown -R www-data:www-data storage bootstrap/cache \
+    && chmod -R 775 storage bootstrap/cache
+
 # Install production PHP dependencies
 RUN composer install \
     --no-dev \
