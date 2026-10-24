@@ -16,21 +16,17 @@ const Navbar = () => {
         {/* Desktop Menu */}
 
         <div className="hidden md:flex items-center gap-6">
-          <a href="#" className="text-sm font-medium text-gray-600 hover:text-[#2563EB] transition">
+          <a href="/" className="text-sm font-medium text-gray-600 hover:text-[#2563EB] transition">
             Home
           </a>
 
-          <a href="#" className="text-sm font-medium text-gray-600 hover:text-[#2563EB] transition">
+          <a href="#features" className="text-sm font-medium text-gray-600 hover:text-[#2563EB] transition">
             Features
           </a>
 
-          <a href="#" className="text-sm font-medium text-gray-600 hover:text-[#2563EB] transition">
-            About
-          </a>
+          
 
-          <a href="#" className="text-sm font-medium text-gray-600 hover:text-[#2563EB] transition">
-            Contact
-          </a>
+          
         </div>
 
         {/* Desktop Buttons */}
@@ -69,10 +65,9 @@ const Navbar = () => {
       {mobileOpen && (
         <div className="md:hidden bg-white border-t border-gray-100 px-4 py-4 flex flex-col gap-3">
 
-          <a href="#">Home</a>
-          <a href="#">Features</a>
-          <a href="#">About</a>
-          <a href="#">Contact</a>
+          <a href="/">Home</a>
+          <a href="#features">Features</a>
+          
 
           <div className="flex gap-2 pt-2 border-t">
 
